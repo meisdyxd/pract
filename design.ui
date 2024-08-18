@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="windows">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>50</y>
+      <width>800</width>
+      <height>550</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page_routs">
+     <widget class="QWidget" name="routs_btns" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>800</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #B0C4DE;</string>
+      </property>
+      <widget class="QPushButton" name="btn_addRout">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>120</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  	background-color: #0000FF;
+  	border: none;
+	border-bottom: 3px solid grey;
+  	color: white;
+ 	padding: 3px 3px;
+}
+QPushButton:hover {
+	border-bottom: 3px solid black;
+	background-color: #0000CD;
+}</string>
+       </property>
+       <property name="text">
+        <string>Добавить маршрут</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_deleteRout">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>10</y>
+         <width>120</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  	background-color: #0000FF;
+  	border: none;
+	border-bottom: 3px solid grey;
+  	color: white;
+ 	padding: 3px 3px;
+}
+QPushButton:hover {
+	border-bottom: 3px solid black;
+	background-color: #0000CD;
+}</string>
+       </property>
+       <property name="text">
+        <string>Удалить маршрут</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_editRout">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>10</y>
+         <width>120</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  	background-color: #0000FF;
+  	border: none;
+	border-bottom: 3px solid grey;
+  	color: white;
+ 	padding: 3px 3px;
+}
+QPushButton:hover {
+	border-bottom: 3px solid black;
+	background-color: #0000CD;
+}</string>
+       </property>
+       <property name="text">
+        <string>Изменить маршрут</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTableWidget" name="tableRouts">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>800</width>
+        <height>500</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="tabKeyNavigation">
+       <bool>false</bool>
+      </property>
+      <property name="cornerButtonEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>155</number>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>155</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>20</number>
+      </attribute>
+      <attribute name="verticalHeaderHighlightSections">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>20</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Код маршрута</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Название</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Дальность</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <kerning>false</kerning>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Кол-во дней в пути</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Оплата</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_drivers">
+     <widget class="QWidget" name="drivers_btns" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>800</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #B0C4DE;</string>
+      </property>
+      <widget class="QPushButton" name="btn_addDriver">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>120</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  	background-color: #0000FF;
+  	border: none;
+	border-bottom: 3px solid grey;
+  	color: white;
+ 	padding: 3px 3px;
+}
+QPushButton:hover {
+	border-bottom: 3px solid black;
+	background-color: #0000CD;
+}</string>
+       </property>
+       <property name="text">
+        <string>Добавить водителя</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_deleteDriver">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>10</y>
+         <width>120</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  	background-color: #0000FF;
+  	border: none;
+	border-bottom: 3px solid grey;
+  	color: white;
+ 	padding: 3px 3px;
+}
+QPushButton:hover {
+	border-bottom: 3px solid black;
+	background-color: #0000CD;
+}</string>
+       </property>
+       <property name="text">
+        <string>Удалить водителя</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_editDriver">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>10</y>
+         <width>120</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  	background-color: #0000FF;
+  	border: none;
+	border-bottom: 3px solid grey;
+  	color: white;
+ 	padding: 3px 3px;
+}
+QPushButton:hover {
+	border-bottom: 3px solid black;
+	background-color: #0000CD;
+}</string>
+       </property>
+       <property name="text">
+        <string>Изменить данные</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTableWidget" name="tableDrivers">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>800</width>
+        <height>500</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="tabKeyNavigation">
+       <bool>false</bool>
+      </property>
+      <property name="cornerButtonEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>155</number>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>155</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>20</number>
+      </attribute>
+      <attribute name="verticalHeaderHighlightSections">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>20</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Код водителя</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Фамилия</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Имя</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <kerning>false</kerning>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Отчество</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Стаж</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_workDone">
+     <widget class="QWidget" name="workDone_btns" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>800</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #B0C4DE;</string>
+      </property>
+      <widget class="QPushButton" name="btn_addWorkDone">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>120</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  	background-color: #0000FF;
+  	border: none;
+	border-bottom: 3px solid grey;
+  	color: white;
+ 	padding: 3px 3px;
+}
+QPushButton:hover {
+	border-bottom: 3px solid black;
+	background-color: #0000CD;
+}</string>
+       </property>
+       <property name="text">
+        <string>Добавить</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_deleteWorkDone">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>10</y>
+         <width>120</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  	background-color: #0000FF;
+  	border: none;
+	border-bottom: 3px solid grey;
+  	color: white;
+ 	padding: 3px 3px;
+}
+QPushButton:hover {
+	border-bottom: 3px solid black;
+	background-color: #0000CD;
+}</string>
+       </property>
+       <property name="text">
+        <string>Удалить</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_editWorkDone">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>10</y>
+         <width>120</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  	background-color: #0000FF;
+  	border: none;
+	border-bottom: 3px solid grey;
+  	color: white;
+ 	padding: 3px 3px;
+}
+QPushButton:hover {
+	border-bottom: 3px solid black;
+	background-color: #0000CD;
+}</string>
+       </property>
+       <property name="text">
+        <string>Изменить данные</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTableWidget" name="tableWorkDone">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>800</width>
+        <height>500</height>
+       </rect>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="tabKeyNavigation">
+       <bool>false</bool>
+      </property>
+      <property name="cornerButtonEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>155</number>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>155</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>20</number>
+      </attribute>
+      <attribute name="verticalHeaderHighlightSections">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>20</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Код маршрута</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Код водителя</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Дата отправки</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Дата возвращения</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <kerning>false</kerning>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Премия</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="menu" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #B0C4DE;
+border-bottom: 1px solid black;</string>
+    </property>
+    <widget class="QPushButton" name="btn_page_routs">
+     <property name="geometry">
+      <rect>
+       <x>72</x>
+       <y>3</y>
+       <width>170</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+  	background-color: #04AA6D;
+  	border: none;
+	border-bottom: 3px solid grey;
+	border-top-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+  	color: white;
+ 	padding: 3px 3px;
+ 	font-size: 16px;
+}
+QPushButton:hover {
+	border-bottom: 3px solid black;
+	background-color: #02784d;
+}</string>
+     </property>
+     <property name="text">
+      <string>Маршруты</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_page_drivers">
+     <property name="geometry">
+      <rect>
+       <x>314</x>
+       <y>3</y>
+       <width>170</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+  	background-color: #04AA6D;
+  	border: none;
+	border-bottom: 3px solid grey;
+	border-top-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+  	color: white;
+ 	padding: 3px 3px;
+ 	font-size: 16px;
+}
+QPushButton::hover {
+	border-bottom: 3px solid black;
+	background-color: #02784d;
+}</string>
+     </property>
+     <property name="text">
+      <string>Водители</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_page_workDone">
+     <property name="geometry">
+      <rect>
+       <x>556</x>
+       <y>3</y>
+       <width>170</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+  	background-color: #04AA6D;
+  	border: none;
+	border-bottom: 3px solid grey;
+	border-top-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+  	color: white;
+ 	padding: 3px 3px;
+ 	font-size: 16px;
+}
+QPushButton:hover {
+	border-bottom: 3px solid black;
+	background-color: #02784d;
+}</string>
+     </property>
+     <property name="text">
+      <string>Проделанная работа</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
